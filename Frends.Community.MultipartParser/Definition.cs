@@ -7,40 +7,54 @@ using System.ComponentModel.DataAnnotations;
 namespace Frends.Community.MultipartParser
 {
     /// <summary>
-    /// Parameters class usually contains parameters that are required.
+    /// Class for giving multipart message.
     /// </summary>
-    public class Parameters
+    public class Input
     {
-
         /// <summary>
-        /// Something that will be repeated.
+        /// Http multipart message as byte array. 
         /// </summary>
         [DisplayFormat(DataFormatString = "Expression")]
         [DefaultValue("System.Convert.FromBase64String(#trigger.data.httpContentBytesInBase64)")]
         public byte[] ByteArray { get; set; }
-
-
-        /// <summary>
-        /// Something that will be repeated. #result.Headers["Content-Type"].Split(new string[] {"boundary="},StringSplitOptions.None)[1]
-        /// </summary>
-        [DisplayFormat(DataFormatString = "Expression")]
-        [DefaultValue("((string)#trigger.data.header[\"Content-Type\"]).Split(new string[] { \"boundary=\" }, StringSplitOptions.None)[1]")]
-        public string boundaryFromHeader { get; set; }
-
     }
 
+    public class Parameter
+    {
+        /// <summary>
+        /// Name of parameter.
+        /// </summary>
+        public string Name { get; set; }
 
+        /// <summary>
+        /// Value of parameter.
+        /// </summary>
+        public string Value { get; set; }
+    }
+
+    public class File
+    {
+        /// <summary>
+        /// File name.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// File content.
+        /// </summary>
+        public byte[] Contents { get; set; }
+    }
 
     public class Result
     {
         /// <summary>
         /// Contains the input repeated the specified number of times.
         /// </summary>
-        public List<byte[]> Contents;
+        public List<File> Files;
 
         /// <summary>
         /// Contains the input repeated the specified number of times.
         /// </summary>
-        public List<string> ContentInformation;
+        public List<Parameter> Parameters;
     }
 }

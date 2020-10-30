@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Frends.Community.MultipartParser
+namespace Frends.Community.Multipart
 {
     /// <summary>
     /// Class for giving multipart message.

@@ -1,6 +1,6 @@
 # Frends.Community.MultipartParser
 
-A frends task form parsing multipart/form-data messages. 
+A frends task for parsing multipart/form-data requests. 
 
 [![Actions Status](https://github.com/CommunityHiQ/Frends.Community.MultipartParser/workflows/PackAndPushAfterMerge/badge.svg)](https://github.com/CommunityHiQ/Frends.Community.MultipartParser/actions) ![MyGet](https://img.shields.io/myget/frends-community/v/Frends.Community.MultipartParser) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
@@ -20,13 +20,13 @@ https://www.myget.org/F/frends-community/api/v3/index.json and in Gallery view i
 
 ## MultipartTasks
 
-A frends task form parsing multipart/form-data messages. Does not use streams, so don't use for very huge files.
+A frends task for parsing multipart/form-data requests. Does not use streams, so don't use for very huge files.
 
 ### Input
 
 | Property | Type | Description | Example |
 | -------- | -------- | -------- | -------- |
-| ByteArray | `byte[]` | Byte array thta contains multipart message. Usually come from [HttpRequestBytes](https://github.com/FrendsPlatform/Frends.Web#httpsendbytes) task via `#result[Get attachment from Procountor].BodyBytes` or from trigger via `System.Convert.FromBase64String(#trigger.data.httpContentBytesInBase64`). | `foo` |
+| ByteArray | `byte[]` | Byte array that contains multipart message. Usually come from [HttpRequestBytes](https://github.com/FrendsPlatform/Frends.Web#httpsendbytes) task via `#result[Get attachment from Procountor].BodyBytes` or from trigger via `System.Convert.FromBase64String( #trigger.data.httpContentBytesInBase64`). | `bytes` |
 
 
 ### Returns
@@ -94,7 +94,7 @@ the task would return
 }
 ```
 
-Note that also plain text file is returned as byte array.
+Note that also plain text file is returned as a byte array.
 
 # Building
 

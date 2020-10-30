@@ -6,44 +6,35 @@ using System.Threading.Tasks;
 
 #pragma warning disable 1591
 
-namespace Frends.Community.MultipartParser
+namespace Frends.Community.Multipart
 {
-    internal class startpointCollection
-    {
-        /// <summary>
-        /// Contains the input repeated the specified number of times.
-        /// </summary>
-        internal List<int> startpoints;
-        internal List<int> pointsAfterContentType;
-    }
-
     public static class MultipartTasks
     {
         /// <summary>
-        /// This is task
+        /// A frends task form parsing multipart/form-data requests.
         /// Documentation: https://github.com/CommunityHiQ/Frends.Community.MultipartParser
         /// </summary>
         /// <param name="input">What to repeat.</param>
-        /// <param name="options">Define if repeated multiple times. </param>
         /// <param name="cancellationToken"></param>
         /// <returns>{string Replication} </returns>
-        public static async Task<Result> ParseMultipartBase64body(Input input, CancellationToken cancellationToken)
+        public static async Task<Result> ParseMultipartRequest(Input input, CancellationToken cancellationToken)
         {
             var ret = new List<File>();
             var ret2 = new List<Parameter>();
-
             MemoryStream stream = new MemoryStream(input.ByteArray);
 
             var parser = await MultipartFormDataParser.ParseAsync(stream).ConfigureAwait(false);
 
             foreach (var file in parser.Files)
             {
+                cancellationToken.ThrowIfCancellationRequested();
                 var tmp = new File { Name = file.FileName, Contents = ((MemoryStream)file.Data).ToArray() };
                 ret.Add(tmp);
             }
 
             foreach (var param in parser.Parameters)
             {
+                cancellationToken.ThrowIfCancellationRequested();
                 var retParam = new Parameter
                 {
                     Name = param.Name,

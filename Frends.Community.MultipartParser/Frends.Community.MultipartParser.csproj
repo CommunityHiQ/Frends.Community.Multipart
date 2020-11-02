@@ -11,6 +11,7 @@
 	<Description>A frends task form parsing multipart/form-data messages.</Description>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Version>0.0.10</Version>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

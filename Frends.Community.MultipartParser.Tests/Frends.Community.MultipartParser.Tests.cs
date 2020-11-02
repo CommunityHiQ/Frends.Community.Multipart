@@ -27,7 +27,7 @@ namespace Frends.Community.Multipart.Tests
             Assert.That(ret.Files[0].Name, Is.EqualTo("employees.json"));
 
             Assert.That(Convert.ToBase64String(ret.Files[1].Contents), Is.EqualTo(secondFile));
-            Assert.That(ret.Files[0].Name, Is.EqualTo("Lorem Ipsum.pdf"));
+            Assert.That(ret.Files[1].Name, Is.EqualTo("Lorem Ipsum.pdf"));
 
             Assert.That(ret.Parameters[0].Name, Is.EqualTo("username"));
             Assert.That(ret.Parameters[0].Value, Is.EqualTo("example"));

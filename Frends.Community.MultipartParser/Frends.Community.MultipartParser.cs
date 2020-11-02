@@ -21,8 +21,7 @@ namespace Frends.Community.Multipart
         {
             var ret = new List<File>();
             var ret2 = new List<Parameter>();
-            MemoryStream stream = new MemoryStream(input.ByteArray);
-
+            using var stream = new MemoryStream(input.ByteArray);
             var parser = await MultipartFormDataParser.ParseAsync(stream).ConfigureAwait(false);
 
             foreach (var file in parser.Files)

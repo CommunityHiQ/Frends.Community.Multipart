@@ -48,12 +48,12 @@ namespace Frends.Community.Multipart
     public class Result
     {
         /// <summary>
-        /// Contains the input repeated the specified number of times.
+        /// Files found from message.
         /// </summary>
         public List<File> Files;
 
         /// <summary>
-        /// Contains the input repeated the specified number of times.
+        /// Parameters found from message.
         /// </summary>
         public List<Parameter> Parameters;
     }

@@ -12,7 +12,7 @@ namespace Frends.Community.Multipart
     {
         /// <summary>
         /// A frends task form parsing multipart/form-data requests.
-        /// Documentation: https://github.com/CommunityHiQ/Frends.Community.MultipartParser
+        /// Documentation: https://github.com/CommunityHiQ/Frends.Community.Multipart
         /// </summary>
         /// <param name="input">What to repeat.</param>
         /// <param name="cancellationToken"></param>
@@ -21,25 +21,27 @@ namespace Frends.Community.Multipart
         {
             var ret = new List<File>();
             var ret2 = new List<Parameter>();
-            using var stream = new MemoryStream(input.ByteArray);
-            var parser = await MultipartFormDataParser.ParseAsync(stream).ConfigureAwait(false);
-
-            foreach (var file in parser.Files)
+            using (var stream = new MemoryStream(input.ByteArray))
             {
-                cancellationToken.ThrowIfCancellationRequested();
-                var tmp = new File { Name = file.FileName, Contents = ((MemoryStream)file.Data).ToArray() };
-                ret.Add(tmp);
-            }
+                var parser = await MultipartFormDataParser.ParseAsync(stream).ConfigureAwait(false);
 
-            foreach (var param in parser.Parameters)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                var retParam = new Parameter
+                foreach (var file in parser.Files)
                 {
-                    Name = param.Name,
-                    Value = param.Data
-                };
-                ret2.Add(retParam);
+                    cancellationToken.ThrowIfCancellationRequested();
+                    var tmp = new File {Name = file.FileName, Contents = ((MemoryStream) file.Data).ToArray()};
+                    ret.Add(tmp);
+                }
+
+                foreach (var param in parser.Parameters)
+                {
+                    cancellationToken.ThrowIfCancellationRequested();
+                    var retParam = new Parameter
+                    {
+                        Name = param.Name,
+                        Value = param.Data
+                    };
+                    ret2.Add(retParam);
+                }
             }
 
             var output = new Result

@@ -1,8 +1,8 @@
-# Frends.Community.MultipartParser
+# Frends.Community.Multipart
 
 A frends task for parsing multipart/form-data requests. 
 
-[![Actions Status](https://github.com/CommunityHiQ/Frends.Community.MultipartParser/workflows/PackAndPushAfterMerge/badge.svg)](https://github.com/CommunityHiQ/Frends.Community.MultipartParser/actions) ![MyGet](https://img.shields.io/myget/frends-community/v/Frends.Community.MultipartParser) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+[![Actions Status](https://github.com/CommunityHiQ/Frends.Community.Multipart/workflows/PackAndPushAfterMerge/badge.svg)](https://github.com/CommunityHiQ/Frends.Community.Multipart/actions) ![MyGet](https://img.shields.io/myget/frends-community/v/Frends.Community.Multipart) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 - [Installing](#installing)
 - [Tasks](#tasks)
@@ -14,7 +14,7 @@ A frends task for parsing multipart/form-data requests.
 # Installing
 
 You can install the Task via frends UI Task View or you can find the NuGet package from the following NuGet feed
-https://www.myget.org/F/frends-community/api/v3/index.json and in Gallery view in MyGet https://www.myget.org/feed/frends-community/package/nuget/Frends.Community.MultipartParser
+https://www.myget.org/F/frends-community/api/v3/index.json and in Gallery view in MyGet https://www.myget.org/feed/frends-community/package/nuget/Frends.Community.Multipart
 
 # Tasks
 
@@ -28,6 +28,16 @@ A frends task for parsing multipart/form-data requests. Does not use streams, so
 | -------- | -------- | -------- | -------- |
 | ByteArray | `byte[]` | Byte array that contains multipart message. Usually come from [HttpRequestBytes](https://github.com/FrendsPlatform/Frends.Web#httpsendbytes) task via `#result[Get attachment from Procountor].BodyBytes` or from trigger via `System.Convert.FromBase64String( #trigger.data.httpContentBytesInBase64`). | `bytes` |
 
+Note that in order to `#trigger.data.httpContentBytesInBase64` reference to work even if you are uploading *multiple* files your body of your endpoint in Open Api Specification needs to be exatly 
+
+```
+requestBody:
+	content:
+		multipart/form-data:
+			schema:
+				type: string
+				format: binary
+```
 
 ### Returns
 
@@ -100,7 +110,7 @@ Note that also plain text file is returned as a byte array.
 
 Clone a copy of the repository
 
-`git clone https://github.com/CommunityHiQ/Frends.Community.MultipartParser.git`
+`git clone https://github.com/CommunityHiQ/Frends.Community.Multipart.git`
 
 Rebuild the project
 
@@ -129,4 +139,4 @@ NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
 | Version | Changes |
 | ------- | ------- |
-| 0.0.1   | Development still going on |
+| 1.0.0   | Inital release of task. |

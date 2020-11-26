@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Frends.Community.MultipartParser\Frends.Community.MultipartParser.csproj" />
+    <ProjectReference Include="..\Frends.Community.Multipart\Frends.Community.Multipart.csproj" />
   </ItemGroup>
 
 </Project>

@@ -8,9 +8,9 @@
     <PackageProjectUrl>https://github.com/CommunityHiQ/Frends.Community.Multipart</PackageProjectUrl>
     <IncludeSource>true</IncludeSource>
     <PackageTags>Frends</PackageTags>
-	<Description>A frends task form parsing multipart/form-data messages.</Description>
+	<Description>A frends task for parsing multipart/form-data messages.</Description>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Version>0.0.12</Version>
+    <Version>0.0.16</Version>
   </PropertyGroup>
 
   <ItemGroup>

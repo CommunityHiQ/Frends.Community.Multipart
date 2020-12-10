@@ -16,7 +16,7 @@ namespace Frends.Community.Multipart
         /// </summary>
         /// <param name="input">What to repeat.</param>
         /// <param name="cancellationToken"></param>
-        /// <returns>Object { List&lt;Parameter&gt; Parameters, List&lt;File&gt; Files } Parameter { string Name, string Value } File { string Name, byte[] Contents }</returns>
+        ///  <returns>Object { List&lt;{ string Name, string Value }&gt; Parameters, List&lt;{ string Name, byte[] Contents }&gt; Files }</returns>
         public static async Task<Result> ParseMultipartRequest(Input input, CancellationToken cancellationToken)
         {
             var ret = new List<File>();

@@ -140,3 +140,4 @@ NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 | Version | Changes |
 | ------- | ------- |
 | 1.0.0   | Inital release of task. |
+| 2.0.0   | Targeted to .NET6 and 8, and updated System.ComponentModel.Annotations to 5.0.0 and HttpMultipartParser to 5.0.1. |
